@@ -1,0 +1,314 @@
+/*
+    style.css - this stylesheet is linked from index.html to apply styles to the products home page.
+    Add all of your custom styles here.
+*/
+
+/*General page styles*/
+
+body {
+    font-family: Arial,  sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/*Header style*/
+
+header {
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+#logo {
+    max-width: 200px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #333;
+    position: fixed;
+    top: 70px; /* Adjust based on header height */
+    width: 100%;
+    z-index: 999;
+    display: grid;
+    grid-template-columns: 1fr auto; /* Two sections: left & right */
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Align "Logout" to the right */
+.nav-right {
+    display: flex;
+    flex-direction: column; /* Stack Logout & Search vertically */
+    align-items: flex-end;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+
+/* Hover Effect */
+nav ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+main {
+    margin-top: 120px; /* Header (70px) + Nav (50px) */
+    padding: 20px;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+}
+
+
+/* Main Section Styling */
+main {
+    margin-top: 120px; /* Push the content below the header and nav */
+    padding: 20px;
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    height: calc(100vh - 240px); /* Full screen minus header and nav */
+  }
+  
+  /* Product Container Flexbox Styling */
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .product-card {
+    background-color: #fff;
+    border: 1px solid black;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* SKU and Price in two columns */
+    grid-template-rows: auto auto 1fr auto; /* Ensure four rows for each section */
+    grid-template-areas:
+        "sku   price"
+        "name  name"
+        "image image"
+        ".     cart";
+    width: 250px;
+    gap: 8px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+/* SKU Section */
+.product-sku {
+    grid-area: sku;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;  
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+/* Price Section */
+.product-price {
+    grid-area: price;
+    font-size: 16px;
+    font-weight: bold;
+    color: green;
+    text-align: right;
+    justify-self: end;
+    white-space: nowrap;  /* Prevent price text from wrapping */
+}
+
+/* Name Section */
+.product-name {
+    grid-area: name;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px; /* Ensure it has its own row */
+}
+
+/* Image Section */
+.product-image {
+    grid-area: image;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+    margin:auto;
+}
+
+/* Cart Icon */
+.add-to-cart {
+    grid-area: cart;
+    background: none !important;  
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 24px;
+    justify-self: end;
+}
+
+/* Font Awesome Icon */
+.add-to-cart i {
+    font-size: 24px;
+    color: black;
+}
+
+/* Hover Effect */
+.add-to-cart:hover i {
+    color: gray;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    .product-card {
+        width: calc(50% - 20px); /* Two cards per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .product-card {
+        width: 100%; /* One card per row */
+    }
+}
+/* Search box */
+/* Search Box Styling */
+#searchBox {
+    position: sticky;
+    top: 10px; /* Stays at the top when scrolling */
+    right: 20px;
+    margin-left: auto; /* Pushes it to the right */
+    display: block;
+    width: 250px;
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background: white;
+    z-index: 1000;
+}
+/* Align search box to the left inside main */
+main {
+    margin-top: 120px; /* Adjust based on nav height */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Push search box to the right */
+    padding: 20px;
+}
+
+#searchBox:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+    align-items: end;
+}
+
+
+
+
+/* Message window */
+#message-window {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Product container */
+#product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 50px;
+}
+
+/* Product cards */
+.product-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 250px;
+   /* text-align: center;*/
+}
+
+.product-card img {
+    grid-area: image;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    object-fit: cover; /* Ensures image is contained */
+}
+
+.product-card .price {
+    font-weight: bold;
+    color: green;
+    text-align: right;
+}
+
+.add-to-cart {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
